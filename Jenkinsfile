@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Secret scan') {
             steps {
-                sh 'trivy fs --scanners secret --skip-dirs .git --exit-code 1 .'
+                sh 'trivy fs --scanners secret --secret-config trivy-secret.yaml --skip-dirs .git --exit-code 1 .'
             }
         }
 
